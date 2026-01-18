@@ -16,6 +16,11 @@ cask "vpn-bypass" do
   app "VPN Bypass.app"
 
   postflight do
+    # Remove quarantine attribute to avoid Gatekeeper warning
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/VPN Bypass.app"],
+                   sudo: false
+    
     # Sign the app after installation (ad-hoc) for notifications to work
     system_command "/usr/bin/codesign",
                    args: ["--force", "--deep", "--sign", "-", "#{appdir}/VPN Bypass.app"],
