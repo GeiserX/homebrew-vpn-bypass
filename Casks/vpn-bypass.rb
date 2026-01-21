@@ -3,8 +3,8 @@
 # Or if using local tap: brew install --cask --no-quarantine ./Casks/vpn-bypass.rb
 
 cask "vpn-bypass" do
-  version "1.6.1"
-  sha256 "62692ff1c35867b2bd480d2733e345b1de84f1d62632d9901403854539400103"
+  version "1.6.2"
+  sha256 "a6ad32d9560de38800dd7243b014cb18b21326ffd9e7ba4ae11139720575b28f"
 
   url "https://github.com/GeiserX/VPNBypass/releases/download/v#{version}/VPNBypass-#{version}.dmg"
   name "VPN Bypass"
