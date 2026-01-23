@@ -19,11 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Get latest release from VPNBypass
+      - name: Get latest release from VPN-Bypass
         id: release
         run: |
-          # Fetch latest release info
-          RELEASE_JSON=$(curl -s "https://api.github.com/repos/GeiserX/VPNBypass/releases/latest")
+          # Fetch latest release info (use -L to follow redirects after repo rename)
+          RELEASE_JSON=$(curl -sL "https://api.github.com/repos/GeiserX/VPN-Bypass/releases/latest")
           
           # Extract version (remove 'v' prefix)
           LATEST_VERSION=$(echo "$RELEASE_JSON" | jq -r '.tag_name' | sed 's/^v//')
