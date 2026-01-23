@@ -6,10 +6,10 @@ cask "vpn-bypass" do
   version "1.6.5"
   sha256 "890248b725ca36161b7a37f7551615cbe2192dee35349ed72c9738ec9508a667"
 
-  url "https://github.com/GeiserX/VPNBypass/releases/download/v#{version}/VPNBypass-#{version}.dmg"
+  url "https://github.com/GeiserX/VPN-Bypass/releases/download/v#{version}/VPN-Bypass-#{version}.dmg"
   name "VPN Bypass"
   desc "macOS menu bar app to route specific traffic around VPN"
-  homepage "https://github.com/GeiserX/VPNBypass"
+  homepage "https://github.com/GeiserX/VPN-Bypass"
 
   depends_on macos: ">= :ventura"
 
