@@ -1,4 +1,10 @@
-# Homebrew Tap for VPN Bypass
+<p align="center"><img src="docs/images/banner.svg" alt="homebrew-vpn-bypass banner" width="900"/></p>
+
+<h1 align="center">homebrew-vpn-bypass</h1>
+
+<p align="center"><strong>Homebrew tap for VPN Bypass</strong></p>
+
+---
 
 This is the official [Homebrew](https://brew.sh/) tap for [VPN Bypass](https://github.com/GeiserX/vpn-macos-bypass).
 
@@ -20,12 +26,12 @@ brew install --cask geiserx/vpn-bypass/vpn-bypass
 VPN Bypass is a macOS menu bar app that routes specific traffic (domains/services) around your corporate VPN, using your regular internet connection.
 
 **Features:**
-- 🔍 Smart VPN detection (GlobalProtect, Cisco, OpenVPN, WireGuard, Tailscale, etc.)
-- 🌐 Pre-configured services (Telegram, YouTube, Spotify, Netflix, and 30+ more)
-- 🔄 Auto DNS refresh to catch IP changes
-- 🔒 Privileged helper for seamless operation (no repeated sudo prompts)
-- 📱 Native notifications
-- 🚀 Launch at login
+- Smart VPN detection (GlobalProtect, Cisco, OpenVPN, WireGuard, Tailscale, etc.)
+- Pre-configured services (Telegram, YouTube, Spotify, Netflix, and 30+ more)
+- Auto DNS refresh to catch IP changes
+- Privileged helper for seamless operation (no repeated sudo prompts)
+- Native notifications
+- Launch at login
 
 ## Requirements
 
