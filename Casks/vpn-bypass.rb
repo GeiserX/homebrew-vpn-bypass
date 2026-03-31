@@ -1,10 +1,9 @@
 # Homebrew Cask for VPN Bypass
 # Install: brew install --cask geiserx/tap/vpn-bypass
-# Or if using local tap: brew install --cask --no-quarantine ./Casks/vpn-bypass.rb
 
 cask "vpn-bypass" do
   version "2.1.1"
-  sha256 "d9bf1604ac80ad19be61ca9eb01f85b3995337d87857b945d29f8d4f9e55019b"
+  sha256 "95f22ffa89d2563a4ebd3818bdc5b1d764187b9c5f51f4f818c149e5fdf85e7f"
 
   url "https://github.com/GeiserX/VPN-Bypass/releases/download/v#{version}/VPN-Bypass-#{version}.dmg"
   name "VPN Bypass"
@@ -24,17 +23,14 @@ cask "vpn-bypass" do
   end
 
   postflight do
-    # Remove quarantine attribute to avoid Gatekeeper warning
     system_command "/usr/bin/xattr",
                    args: ["-cr", "#{appdir}/VPN Bypass.app"],
                    sudo: false
 
-    # Sign the app after installation (ad-hoc) for notifications to work
     system_command "/usr/bin/codesign",
                    args: ["--force", "--deep", "--sign", "-", "#{appdir}/VPN Bypass.app"],
                    sudo: false
 
-    # Relaunch the app after upgrade
     system_command "/usr/bin/open",
                    args: ["#{appdir}/VPN Bypass.app"],
                    sudo: false,
