@@ -1,9 +1,6 @@
-# Homebrew Cask for VPN Bypass
-# Install: brew install --cask geiserx/tap/vpn-bypass
-
 cask "vpn-bypass" do
   version "2.1.1"
-  sha256 "802ffa7f184d50ffcf8cc093dfc989245b162962ad2794db8c013d5bc2e4de8b"
+  sha256 "2bcc478a769e8e5b8e9ebce95dc40a7b46785f58d9b8c99516fcfd3f7f14ef52"
 
   url "https://github.com/GeiserX/VPN-Bypass/releases/download/v#{version}/VPN-Bypass-#{version}.dmg"
   name "VPN Bypass"
@@ -15,7 +12,6 @@ cask "vpn-bypass" do
   app "VPN Bypass.app"
 
   preflight do
-    # Quit running app before upgrade so the new binary takes effect
     system_command "/usr/bin/pkill",
                    args: ["-x", "VPNBypass"],
                    sudo: false,
