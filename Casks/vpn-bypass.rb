@@ -15,16 +15,30 @@ cask "vpn-bypass" do
 
   app "VPN Bypass.app"
 
+  preflight do
+    # Quit running app before upgrade so the new binary takes effect
+    system_command "/usr/bin/pkill",
+                   args: ["-x", "VPNBypass"],
+                   sudo: false,
+                   must_succeed: false
+  end
+
   postflight do
     # Remove quarantine attribute to avoid Gatekeeper warning
     system_command "/usr/bin/xattr",
                    args: ["-cr", "#{appdir}/VPN Bypass.app"],
                    sudo: false
-    
+
     # Sign the app after installation (ad-hoc) for notifications to work
     system_command "/usr/bin/codesign",
                    args: ["--force", "--deep", "--sign", "-", "#{appdir}/VPN Bypass.app"],
                    sudo: false
+
+    # Relaunch the app after upgrade
+    system_command "/usr/bin/open",
+                   args: ["#{appdir}/VPN Bypass.app"],
+                   sudo: false,
+                   must_succeed: false
   end
 
   zap trash: [
