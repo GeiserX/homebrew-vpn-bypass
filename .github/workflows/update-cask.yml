@@ -13,7 +13,7 @@ permissions:
 jobs:
   update:
     name: Check and Update Cask
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64]
 
     steps:
       - name: Checkout
