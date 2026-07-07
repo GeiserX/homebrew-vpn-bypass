@@ -1,6 +1,6 @@
 cask "vpn-bypass" do
-  version "3.1.1"
-  sha256 "b6264e9060f67ab2127f4be5e170e33667448649dc9c94ae60699e2b7e2891ba"
+  version "3.1.2"
+  sha256 "74f4c01f07f23d486843bad50b9bd0751c20199b83bd9e9fb2c6757302f098fa"
 
   url "https://github.com/GeiserX/VPN-Bypass/releases/download/v#{version}/VPN-Bypass-#{version}.dmg"
   name "VPN Bypass"
@@ -10,6 +10,7 @@ cask "vpn-bypass" do
   depends_on macos: :ventura
 
   app "VPN Bypass.app"
+  binary "#{appdir}/VPN Bypass.app/Contents/MacOS/vpnb"
 
   preflight do
     system_command "/usr/bin/pkill",
