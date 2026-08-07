@@ -1,6 +1,6 @@
 cask "vpn-bypass" do
-  version "3.1.11"
-  sha256 "ad97bd36a74ed545ba3408445aab7cb15426588920668e74cf7ea716ed53c461"
+  version "3.1.12"
+  sha256 "30b9806333b9bb314d1ef24764b6e96a53a7550ee68a8bfedcb3e1f0cdfd09e3"
 
   url "https://github.com/GeiserX/VPN-Bypass/releases/download/v#{version}/VPN-Bypass-#{version}.dmg"
   name "VPN Bypass"
