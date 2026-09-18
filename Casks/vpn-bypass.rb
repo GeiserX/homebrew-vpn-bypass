@@ -12,26 +12,25 @@ cask "vpn-bypass" do
   app "VPN Bypass.app"
   binary "#{appdir}/VPN Bypass.app/Contents/MacOS/vpnb"
 
-  preflight do
-    system_command "/usr/bin/pkill",
-                   args:         ["-x", "VPNBypass"],
-                   sudo:         false,
-                   must_succeed: false
+  preflight_steps do
+    terminate_process "VPNBypass"
   end
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/VPN Bypass.app"],
-                   sudo: false
+  postflight_steps do
+    # must_succeed is spelled out because `run` defaults to true while the old
+    # system_command defaulted to false; without it a failed re-sign would start
+    # aborting installs that used to finish.
+    run "/usr/bin/xattr",
+        args:         ["-cr", "{{appdir}}/VPN Bypass.app"],
+        must_succeed: false
 
-    system_command "/usr/bin/codesign",
-                   args: ["--force", "--deep", "--sign", "-", "#{appdir}/VPN Bypass.app"],
-                   sudo: false
+    run "/usr/bin/codesign",
+        args:         ["--force", "--deep", "--sign", "-", "{{appdir}}/VPN Bypass.app"],
+        must_succeed: false
 
-    system_command "/usr/bin/open",
-                   args:         ["#{appdir}/VPN Bypass.app"],
-                   sudo:         false,
-                   must_succeed: false
+    run "/usr/bin/open",
+        args:         ["{{appdir}}/VPN Bypass.app"],
+        must_succeed: false
   end
 
   zap trash: [
