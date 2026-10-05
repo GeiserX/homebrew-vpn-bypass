@@ -1,6 +1,6 @@
 cask "vpn-bypass" do
-  version "5.0.3"
-  sha256 "ea1351bdb9f73bb584e4689a936ae27372e18e851bf522b62b899f0491b9d4a7"
+  version "5.1.0"
+  sha256 "863114730d048469955164efa17a2a8dda8a0b13731c7a79e874add4f5a825fa"
 
   url "https://github.com/GeiserX/VPN-Bypass/releases/download/v#{version}/VPN-Bypass-#{version}.dmg"
   name "VPN Bypass"
@@ -17,17 +17,6 @@ cask "vpn-bypass" do
   end
 
   postflight_steps do
-    # must_succeed is spelled out because `run` defaults to true while the old
-    # system_command defaulted to false; without it a failed re-sign would start
-    # aborting installs that used to finish.
-    run "/usr/bin/xattr",
-        args:         ["-cr", "{{appdir}}/VPN Bypass.app"],
-        must_succeed: false
-
-    run "/usr/bin/codesign",
-        args:         ["--force", "--deep", "--sign", "-", "{{appdir}}/VPN Bypass.app"],
-        must_succeed: false
-
     run "/usr/bin/open",
         args:         ["{{appdir}}/VPN Bypass.app"],
         must_succeed: false
