@@ -1,6 +1,6 @@
 cask "vpn-bypass" do
-  version "5.1.1"
-  sha256 "b4c6dd83025672694c5f61da437030e4fe00fee02f3ee90b95742c867e42adec"
+  version "5.1.2"
+  sha256 "9dab6388c3b665bd87a71aceaeda40efde41c6da29f3c29eabd587d0dc658fd0"
 
   url "https://github.com/GeiserX/VPN-Bypass/releases/download/v#{version}/VPN-Bypass-#{version}.dmg"
   name "VPN Bypass"
@@ -11,16 +11,6 @@ cask "vpn-bypass" do
 
   app "VPN Bypass.app"
   binary "#{appdir}/VPN Bypass.app/Contents/MacOS/vpnb"
-
-  preflight_steps do
-    terminate_process "VPNBypass"
-  end
-
-  postflight_steps do
-    run "/usr/bin/open",
-        args:         ["{{appdir}}/VPN Bypass.app"],
-        must_succeed: false
-  end
 
   zap trash: [
     "~/Library/Application Support/VPNBypass",
